@@ -36,12 +36,16 @@
   "author": "Gil Amran",
   "dependencies": {
     "@material-ui/core": "^1.2.1",
+    "@material-ui/icons": "^2.0.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "http-proxy-middleware": "^0.18.0",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-pose": "^2.2.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "tslib": "^1.9.2"
