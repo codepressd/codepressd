@@ -3,6 +3,7 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
+import { toJS } from 'mobx';
 
 import { Logo } from '../svg/Logo';
 
@@ -14,7 +15,7 @@ interface IHeaderProps {
 }
 
 interface Injected extends IHeaderProps {
-  rootStore: Types.RootStore
+  rootStore: Types.RootStore,
 }
 
 const styles = Styles.wrapStyles(Styles.header)
@@ -36,21 +37,27 @@ class Header extends React.Component<HeaderWithStyles>{
 
   render() {
     const { classes } = this.props;
+    const { rootStore } = this.injected;
+    console.log(toJS(rootStore.routerStore.matchedRoute));
     return (
       <AppBar className={classes.wrap} position='static' color='default'>
         <Toolbar>
-          <div>
-            <Button onClick={this.uiState.toggleMenu} className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon /> <span className="menu"> Menu</span>
-            </Button>
-          </div>
-          <div className={`${classes.logo} ${classes.visible}`}>
-            <Logo width={115} height={115} fontSize="74" />
-          </div>
+
+          <Button onClick={this.uiState.toggleMenu} className={classes.menuButton} color="inherit" aria-label="Menu">
+            <MenuIcon /> <span className="menu"> Menu</span>
+          </Button>
+
+          {location.pathname !== '/' &&
+            <div onClick={() => this.injected.rootStore.routerStore.push('/')} className={`${classes.logo} ${classes.visible}`}>
+              <Logo width={115} height={115} fontSize="74" />
+            </div>
+          }
+
           <div className={classes.socialIcons}>
             <a href="https://www.linkedin.com/in/chris-reeder/" target="_blank" className="fa fa-linkedin" />
             <a href="https://github.com/codepressd" target="_blank" className="fa fa-github" />
           </div>
+
         </Toolbar>
       </AppBar>)
   }

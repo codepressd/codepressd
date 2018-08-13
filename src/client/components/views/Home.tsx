@@ -1,28 +1,26 @@
 import * as React from 'react';
 import { observable } from 'mobx';
-import { observer } from 'mobx-react';
-import { withRouter } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 import { Button } from '@material-ui/core';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import { Logo } from '../svg/Logo';
 
 import * as Styles from '../../styles';
+import * as Types from '../../../shared/Types';
 
 interface IHomePageProps {
     classes: any;
 }
 
 interface Injected extends IHomePageProps {
-    location: Location;
-    history: any;
-    match: any;
+    rootStore: Types.RootStore;
 }
 
 const styles = Styles.wrapStyles(Styles.homePage);
 
 type HomePageWithStyles = IHomePageProps & WithStyles<typeof styles>;
 
-@withRouter
+@inject("rootStore")
 @observer
 class HomePage extends React.Component<HomePageWithStyles, any>{
 
@@ -39,7 +37,7 @@ class HomePage extends React.Component<HomePageWithStyles, any>{
     navigate = (location: string) => (e) => {
         this.opacity = !this.opacity;
         setTimeout(() => {
-            this.injected.history.push(location);
+            this.injected.rootStore.routerStore.push(location);
         }, 800)
     }
 
@@ -49,7 +47,7 @@ class HomePage extends React.Component<HomePageWithStyles, any>{
             <div className={`${classes.wrap} ${this.opacity && classes.fade}`}>
                 <Logo fontSize="74" />
                 <div className={classes.navButtons}>
-                    <Button onClick={this.navigate('/project')}>Projects</Button>
+                    <Button onClick={this.navigate('/projects')}>Projects</Button>
                     <Button onClick={this.navigate('/about')}>About</Button>
                     <Button onClick={this.navigate('/contact')}>Contact</Button>
                 </div>

@@ -38,6 +38,7 @@ export const header = {
             justifyContent: "space-between",
             height: "120px",
             "& Button": {
+                padding: "0",
                 "&:hover": {
                     background: "transparent",
                     "& svg": {
@@ -62,7 +63,7 @@ export const header = {
         }
     },
     logo: {
-
+        cursor: "pointer"
     },
     socialIcons: {
         display: "flex",
@@ -88,8 +89,8 @@ export const Menu = {
     wrap: {
         width: "120px",
         "& > div": {
-            top: "60px",
-            width: "108px",
+            top: "80px",
+            width: "103px",
             background: "transparent",
             border: "none",
             alignItems: "flex-end",

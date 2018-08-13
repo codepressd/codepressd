@@ -3,8 +3,6 @@ import Drawer from '@material-ui/core/Drawer';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import { observer, inject } from 'mobx-react';
 
-import { Link } from 'react-router-dom';
-
 import * as Styles from '../../styles';
 
 interface IMenuProps {
@@ -24,9 +22,9 @@ const Menu: React.SFC<MenuWithStyles> = inject('rootStore')(observer(props => {
             anchor='left'
             variant='persistent'
         >
-            <Link className={classes.menuItem} to='/about'> About </Link>
-            <Link className={classes.menuItem} to='/projects'> Projects </Link>
-            <Link className={classes.menuItem} to='/contact'> Contact </Link>
+            <a className={classes.menuItem} href='/about'> About </a>
+            <a className={classes.menuItem} href='/projects'> Projects </a>
+            <a className={classes.menuItem} href='/contact'> Contact </a>
         </Drawer>
     )
 }));
