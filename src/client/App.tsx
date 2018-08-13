@@ -3,12 +3,15 @@ import * as React from 'react';
 import { Provider } from 'mobx-react';
 import { rootStore } from './stores/RootStore';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { About } from './components/About/About';
+//import { About } from './components/About/About';
 // Pages
 import Header from './components/Header/Header';
 import Menu from './components/Header/Menu';
 import HomePage from './components/views/Home';
-import { UsersList } from './components/UsersList/UsersList';
+import Projects from './components/views/Projects';
+import About from './components/views/About';
+import Contact from './components/views/Contact';
+//import { UsersList } from './components/UsersList/UsersList';
 
 export const App = () => (
   <Provider rootStore={rootStore}>
@@ -20,7 +23,8 @@ export const App = () => (
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/about' component={About} />
-            <Route path='/users-list' component={UsersList} />
+            <Route path='/projects' component={Projects} />
+            <Route path='/contact' component={Contact} />
           </Switch>
         </Grid>
       </div>

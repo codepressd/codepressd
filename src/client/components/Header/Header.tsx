@@ -2,7 +2,9 @@ import { AppBar, Button, Toolbar } from '@material-ui/core';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
-import { observer, inject } from 'mobx-react'
+import { observer, inject } from 'mobx-react';
+
+import { Logo } from '../svg/Logo';
 
 import * as Styles from '../../styles';
 import * as Types from '../../../shared/Types';
@@ -36,12 +38,16 @@ class Header extends React.Component<HeaderWithStyles>{
     const { classes } = this.props;
     return (
       <AppBar className={classes.wrap} position='static' color='default'>
-        <Toolbar className={classes.toolBar}>
-          <Button onClick={this.uiState.toggleMenu} className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon /> Menu
-          </Button>
+        <Toolbar>
+          <div>
+            <Button onClick={this.uiState.toggleMenu} className={classes.menuButton} color="inherit" aria-label="Menu">
+              <MenuIcon /> <span className="menu"> Menu</span>
+            </Button>
+          </div>
+          <div className={`${classes.logo} ${classes.visible}`}>
+            <Logo width={115} height={115} fontSize="74" />
+          </div>
           <div className={classes.socialIcons}>
-            <a href="https://www.instagram.com/little_pappy" target="_blank" className="fa fa-instagram" />
             <a href="https://www.linkedin.com/in/chris-reeder/" target="_blank" className="fa fa-linkedin" />
             <a href="https://github.com/codepressd" target="_blank" className="fa fa-github" />
           </div>

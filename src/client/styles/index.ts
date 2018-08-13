@@ -16,6 +16,7 @@ const mainText = `'Bentham', serif`;
 const subText = `'Hind Siliguri', sans-serif`;
 const slateColor = "#464546";
 const creamColor = "#f6f5f3";
+const liteBrown = "#9d8460";
 
 
 ////////////
@@ -29,12 +30,26 @@ export const header = {
         }
     },
     wrap: {
-        background: creamColor,
+        background: 'transparent',
         boxShadow: "none",
         color: slateColor,
         position: "absolute",
         "& > div": {
-            justifyContent: "space-between"
+            justifyContent: "space-between",
+            height: "120px",
+            "& Button": {
+                "&:hover": {
+                    background: "transparent",
+                    "& svg": {
+                        transition: "all 250ms ease",
+                        fill: liteBrown,
+                    },
+                    "& span": {
+                        transition: "all 250ms ease",
+                        color: liteBrown,
+                    }
+                }
+            }
         },
         "& span": {
             color: slateColor,
@@ -42,18 +57,25 @@ export const header = {
             fontWeight: 600,
             fontSize: "17px",
             "& svg": {
-                marginRight: "5px"
+                marginRight: "5px",
             }
         }
     },
+    logo: {
+
+    },
     socialIcons: {
         display: "flex",
-        width: "120px",
+        width: "80px",
         justifyContent: "space-around",
         "& a": {
             fontSize: "24px",
             textDecoration: "none",
             color: slateColor,
+            transition: "color 250ms ease",
+            "&:hover": {
+                color: liteBrown,
+            }
         }
     }
 }
@@ -101,7 +123,12 @@ export const homePage = {
         alignItems: "center",
         height: `100vh`,
         width: "100%",
-        background: "#f6f5f3"
+        background: "#f6f5f3",
+        transition: "opacity .8s ease",
+        opacity: 1,
+    },
+    fade: {
+        opacity: 0,
     },
     navButtons: {
         display: "flex",
@@ -120,3 +147,31 @@ export const homePage = {
     }
 }
 
+//////////////
+// PROJECTS //
+//////////////
+
+export const projects = {
+    wrap: {
+        width: "100%"
+    }
+}
+
+///////////
+// ABOUT //
+///////////
+
+export const about = {
+    wrap: {
+        width: "100%"
+    }
+}
+/////////////
+// CONTACT //
+/////////////
+
+export const contact = {
+    wrap: {
+        width: "100%"
+    }
+}

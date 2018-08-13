@@ -10,7 +10,7 @@ interface ILogo {
 export const Logo: React.SFC<ILogo> = props => {
     const { height, width, fontSize } = props;
     return (
-        <svg width={`${width ? width.toString() + "px" : "282px"}`} height={`${height ? height.toString() + "px" : "254px"}`} viewBox={`0 0 ${width ? width : 282} ${height ? height : 254}`} version="1.1" >
+        <svg style={{ width: width ? width.toString() + "px" : "282px", height: height ? height.toString() + "px" : "254px" }} viewBox={`0 0  282 254`} version="1.1" >
 
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <text id="Codepressd" transform="translate(139.500000, 125.500000) rotate(-6.000000) translate(-139.500000, -125.500000) " fontFamily="Kylets-Demo, Kylets" fontSize={fontSize ? fontSize : "80"} fontWeight="normal" letterSpacing="-0.2545455" fill="#464546">
