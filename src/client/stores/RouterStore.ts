@@ -45,7 +45,6 @@ export class RouterStore {
 
         this.history.listen((location: any) => {
             fullUrl = location.pathname + location.search;
-            console.log("this fires", location);
             this.route(fullUrl);
         });
 

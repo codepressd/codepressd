@@ -9,12 +9,10 @@ import Menu from './components/Header/Menu';
 
 export const App = () => (
   <Provider rootStore={rootStore}>
-    <div>
-      <Grid container spacing={24}>
-        <Header />
-        <Menu />
-        <Router />
-      </Grid>
-    </div>
+    <Grid container spacing={24}>
+      <Header />
+      <Menu />
+      <Router />
+    </Grid>
   </Provider>
 );

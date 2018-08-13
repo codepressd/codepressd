@@ -38,7 +38,6 @@ class Header extends React.Component<HeaderWithStyles>{
   render() {
     const { classes } = this.props;
     const { rootStore } = this.injected;
-    console.log(toJS(rootStore.routerStore.matchedRoute));
     return (
       <AppBar className={classes.wrap} position='static' color='default'>
         <Toolbar>
@@ -47,7 +46,7 @@ class Header extends React.Component<HeaderWithStyles>{
             <MenuIcon /> <span className="menu"> Menu</span>
           </Button>
 
-          {location.pathname !== '/' &&
+          {rootStore.routerStore.matchedRoute.standardizedPath !== '/' &&
             <div onClick={() => this.injected.rootStore.routerStore.push('/')} className={`${classes.logo} ${classes.visible}`}>
               <Logo width={115} height={115} fontSize="74" />
             </div>

@@ -113,6 +113,9 @@ export class Router_ extends React.Component<any, RouterState> {
         );
     }
 
+    // Mobx throws a warning on this, but it is here if you ever want to just use links
+    // to modify query params without the components re-rendering
+
     shouldComponentUpdate(nextProps: any, nextState: RouterState) {
         if (
             nextState.matchedRoute &&
