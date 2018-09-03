@@ -63,7 +63,14 @@ export const header = {
         }
     },
     logo: {
-        cursor: "pointer"
+        cursor: "pointer",
+        visibility: "hidden",
+        transition: "opacity .8s ease",
+        opacity: 0
+    },
+    visible: {
+        visibility: "visible",
+        opacity: 1
     },
     socialIcons: {
         display: "flex",

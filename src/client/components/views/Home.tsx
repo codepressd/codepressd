@@ -24,7 +24,7 @@ type HomePageWithStyles = IHomePageProps & WithStyles<typeof styles>;
 @observer
 class HomePage extends React.Component<HomePageWithStyles, any>{
 
-    @observable opacity: boolean = false;
+    @observable opacity: boolean = true;
 
     constructor(props: HomePageWithStyles) {
         super(props);
@@ -32,6 +32,12 @@ class HomePage extends React.Component<HomePageWithStyles, any>{
 
     get injected() {
         return this.props as Injected
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.opacity = false;
+        }, 300);
     }
 
     navigate = (location: string) => (e) => {

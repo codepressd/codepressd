@@ -3,7 +3,6 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import { toJS } from 'mobx';
 
 import { Logo } from '../svg/Logo';
 
@@ -46,11 +45,9 @@ class Header extends React.Component<HeaderWithStyles>{
             <MenuIcon /> <span className="menu"> Menu</span>
           </Button>
 
-          {rootStore.routerStore.matchedRoute.standardizedPath !== '/' &&
-            <div onClick={() => this.injected.rootStore.routerStore.push('/')} className={`${classes.logo} ${classes.visible}`}>
-              <Logo width={115} height={115} fontSize="74" />
-            </div>
-          }
+          <div onClick={() => this.injected.rootStore.routerStore.push('/')} className={`${classes.logo} ${rootStore.routerStore.matchedRoute.standardizedPath !== '/' ? classes.visible : ""}`}>
+            <Logo width={115} height={115} fontSize="74" />
+          </div>
 
           <div className={classes.socialIcons}>
             <a href="https://www.linkedin.com/in/chris-reeder/" target="_blank" className="fa fa-linkedin" />
