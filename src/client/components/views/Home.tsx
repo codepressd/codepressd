@@ -20,10 +20,9 @@ const styles = Styles.wrapStyles(Styles.homePage);
 
 type HomePageWithStyles = IHomePageProps & WithStyles<typeof styles>;
 
-@inject("rootStore")
+@inject('rootStore')
 @observer
-class HomePage extends React.Component<HomePageWithStyles, any>{
-
+class HomePage extends React.Component<HomePageWithStyles, any> {
     @observable opacity: boolean = true;
 
     constructor(props: HomePageWithStyles) {
@@ -31,7 +30,7 @@ class HomePage extends React.Component<HomePageWithStyles, any>{
     }
 
     get injected() {
-        return this.props as Injected
+        return this.props as Injected;
     }
 
     componentDidMount() {
@@ -40,25 +39,25 @@ class HomePage extends React.Component<HomePageWithStyles, any>{
         }, 300);
     }
 
-    navigate = (location: string) => (e) => {
+    navigate = (location: string) => () => {
         this.opacity = !this.opacity;
         setTimeout(() => {
             this.injected.rootStore.routerStore.push(location);
-        }, 800)
-    }
+        }, 800);
+    };
 
     render() {
         const { classes } = this.props;
         return (
             <div className={`${classes.wrap} ${this.opacity && classes.fade}`}>
-                <Logo fontSize="74" />
+                <Logo />
                 <div className={classes.navButtons}>
                     <Button onClick={this.navigate('/projects')}>Projects</Button>
                     <Button onClick={this.navigate('/about')}>About</Button>
                     <Button onClick={this.navigate('/contact')}>Contact</Button>
                 </div>
             </div>
-        )
+        );
     }
 }
 
