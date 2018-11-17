@@ -9,7 +9,7 @@ interface IAboutProps {
     classes: any;
 }
 
-interface Injected extends IAboutProps {
+interface Injected extends AboutWithStyles {
     rootStore: Types.RootStore;
 }
 
@@ -17,21 +17,19 @@ const styles = Styles.wrapStyles(Styles.about);
 
 type AboutWithStyles = IAboutProps & WithStyles<typeof styles>;
 
-@inject("rootStore")
+@inject('rootStore')
 @observer
-class About extends React.Component<AboutWithStyles, any>{
+class About extends React.Component<AboutWithStyles, any> {
     constructor(props: AboutWithStyles) {
-        super(props)
+        super(props);
     }
 
     get injected() {
-        return this.props as Injected
+        return this.props as Injected;
     }
 
     render() {
-        return (
-            <div>Abouts</div>
-        )
+        return <div>Abouts</div>;
     }
 }
 

@@ -12,7 +12,7 @@ interface IHomePageProps {
     classes: any;
 }
 
-interface Injected extends IHomePageProps {
+interface Injected extends HomePageWithStyles {
     rootStore: Types.RootStore;
 }
 

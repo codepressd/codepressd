@@ -5,33 +5,32 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 import * as Styles from '../../styles';
 import * as Types from '../../../shared/Types';
 
+const styles = Styles.wrapStyles(Styles.projects);
+
 interface IProjectProps {
     classes: any;
 }
 
-interface Injected extends IProjectProps {
+interface Injected extends ProjectWithStyles {
     rootStore: Types.RootStore;
 }
 
-const styles = Styles.wrapStyles(Styles.projects);
-
 type ProjectWithStyles = IProjectProps & WithStyles<typeof styles>;
 
-@inject("rootStore")
+@inject('rootStore')
 @observer
-class Projects extends React.Component<ProjectWithStyles, any>{
+class Projects extends React.Component<ProjectWithStyles, any> {
     constructor(props: ProjectWithStyles) {
-        super(props)
+        super(props);
     }
 
     get injected() {
-        return this.props as Injected
+        return this.props as Injected;
     }
 
     render() {
-        return (
-            <div>Projects</div>
-        )
+        const { classes } = this.injected;
+        return <div className={classes.wrap}>Projects</div>;
     }
 }
 

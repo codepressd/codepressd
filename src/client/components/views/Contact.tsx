@@ -9,7 +9,7 @@ interface IContactProps {
     classes: any;
 }
 
-interface Injected extends IContactProps {
+interface Injected extends ContactWithStyles {
     rootStore: Types.RootStore;
 }
 
@@ -17,21 +17,19 @@ const styles = Styles.wrapStyles(Styles.contact);
 
 type ContactWithStyles = IContactProps & WithStyles<typeof styles>;
 
-@inject("rootStore")
+@inject('rootStore')
 @observer
-class Contact extends React.Component<ContactWithStyles, any>{
+class Contact extends React.Component<ContactWithStyles, any> {
     constructor(props: ContactWithStyles) {
-        super(props)
+        super(props);
     }
 
     get injected() {
-        return this.props as Injected
+        return this.props as Injected;
     }
 
     render() {
-        return (
-            <div>Contacts</div>
-        )
+        return <div>Contacts</div>;
     }
 }
 

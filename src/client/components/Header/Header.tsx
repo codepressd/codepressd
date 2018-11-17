@@ -13,7 +13,7 @@ interface IHeaderProps {
     classes: any;
 }
 
-interface Injected extends IHeaderProps {
+interface Injected extends HeaderWithStyles {
     rootStore: Types.RootStore;
 }
 
@@ -24,7 +24,7 @@ type HeaderWithStyles = IHeaderProps & WithStyles<typeof styles>;
 @inject('rootStore')
 @observer
 class Header extends React.Component<HeaderWithStyles> {
-    private uiState = this.injected.rootStore.uiState;
+    uiState = this.injected.rootStore.uiState;
 
     constructor(props: HeaderWithStyles) {
         super(props);
@@ -34,7 +34,7 @@ class Header extends React.Component<HeaderWithStyles> {
         return this.props as Injected;
     }
 
-    public render() {
+    render() {
         const { classes } = this.props;
         const { rootStore } = this.injected;
 

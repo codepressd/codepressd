@@ -15,7 +15,7 @@
     "no-console": [false, "log", "error"],
     "no-var-requires": false,
     "member-access": [true, "no-public"],
-    "no-string-literal":false
+    "no-string-literal": false
   },
   "rulesDirectory": []
 }
