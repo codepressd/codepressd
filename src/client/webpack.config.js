@@ -10,7 +10,7 @@ const projectRoot = path.join(__dirname, '..', '..');
 const plugins = [
     new HtmlWebpackPlugin({
         title: 'Codepressd - UI/UX Development',
-        favicon: 'favicon.ico',
+        favicon: 'favicon2.ico',
         filename: 'index.html',
         template: 'index.ejs',
     }),

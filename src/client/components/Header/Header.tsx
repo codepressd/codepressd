@@ -39,15 +39,15 @@ class Header extends React.Component<HeaderWithStyles> {
         const { rootStore } = this.injected;
 
         return (
-            <AppBar className={classes.wrap} position="static" color="default">
+            <AppBar className={classes.wrap} position='static' color='default'>
                 <Toolbar>
                     <Button
                         onClick={this.uiState.toggleMenu}
                         className={classes.menuButton}
-                        color="inherit"
-                        aria-label="Menu"
+                        color='inherit'
+                        aria-label='Menu'
                     >
-                        <MenuIcon /> <span className="menu"> Menu</span>
+                        <MenuIcon /> <span className='menu'> Menu</span>
                     </Button>
 
                     <div
@@ -63,14 +63,14 @@ class Header extends React.Component<HeaderWithStyles> {
 
                     <div className={classes.socialIcons}>
                         <a
-                            href="https://www.linkedin.com/in/chris-reeder/"
-                            target="_blank"
-                            className="fa fa-linkedin"
+                            href='https://www.linkedin.com/in/chris-reeder/'
+                            target='_blank'
+                            className='fa fa-linkedin'
                         />
                         <a
-                            href="https://github.com/codepressd"
-                            target="_blank"
-                            className="fa fa-github"
+                            href='https://github.com/codepressd'
+                            target='_blank'
+                            className='fa fa-github'
                         />
                     </div>
                 </Toolbar>
