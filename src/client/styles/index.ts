@@ -189,11 +189,23 @@ export const projects: Record<string, React.CSSProperties | Record<string, React
         width: '100%',
         height: '100vh'
     },
+    mainImage: {
+        width: '100%',
+        height: `100%`,
+        gridColumn: 'c-2/c-6',
+        gridRow: 'r-3/r-10',
+        '& img': {
+            width: 'inherit'
+        }
+    },
     titleWrap: {
         gridColumn: 'c-7/c-10',
         gridRow: 'r-4/r-7',
         '& .title': {
             ...title
+        },
+        '& .description': {
+            fontFamily: subText
         }
     },
     bottomBar: {
@@ -201,7 +213,6 @@ export const projects: Record<string, React.CSSProperties | Record<string, React
         gridTemplateColumns:
             '[c-1] 10% [c-2] 10% [c-3] 10% [c-4] 10% [c-5] 10% [c-6] 10% [c-7] 10% [c-8] 10% [c-9] 10% [c-10] 10%',
         gridTemplateRows: '[r-1] 25% [r-2] 25% [r-3] 25% [r-4] 25%',
-        backgroundImage: `linear-gradient(to right, ${liteBrown(0.1)} 55%, #fff 75%)`,
         gridColumn: 'c-1/spanc-10',
         gridRow: 'r-8/spanr-10',
         '& .leftWrap': {
@@ -211,7 +222,10 @@ export const projects: Record<string, React.CSSProperties | Record<string, React
                 fontSize: 20,
                 fontWeight: 600,
                 fontFamily: mainText,
-                margin: '10px 0'
+                color: '#464546',
+                margin: '10px 10px 10px 0',
+                padding: '0 0 10px',
+                borderBottom: `2px dashed ${liteBrown(0.3)}`
             },
             '& .details': {
                 width: '100%',
@@ -222,7 +236,9 @@ export const projects: Record<string, React.CSSProperties | Record<string, React
         },
         '& .rightWrap': {
             gridColumn: 'c-7/spanc-10',
-            gridRow: 'r-1/spanr-4'
+            gridRow: 'r-1/spanr-4',
+            borderTopLeftRadius: '8px',
+            border: `2px dashed ${liteBrown(0.3)}`
         }
     },
     details: {
@@ -238,13 +254,13 @@ export const projects: Record<string, React.CSSProperties | Record<string, React
             width: '100%',
             '& .list-item': {
                 width: '50%',
-                fontSize: '16px',
+                fontSize: '14px',
                 margin: '5px 0',
                 fontFamily: subText
             }
         },
         '& .description-wrap': {
-            fontSize: '16px',
+            fontSize: '14px',
             margin: '5px 0',
             fontFamily: subText
         }

@@ -4,7 +4,7 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 
 import * as Styles from '../../styles';
 import * as Types from '../../../shared/Types';
-import * as NewImage from '../../../shared/images/gift.png';
+const NewImage = require('../../images/giftHistory.png');
 
 const styles = Styles.wrapStyles(Styles.projects);
 
@@ -29,31 +29,33 @@ class Projects extends React.Component<ProjectWithStyles> {
         const { classes } = this.injected;
         return (
             <div className={classes.wrap}>
+                <div className={classes.mainImage}>
+                    <img src={NewImage} />
+                </div>
                 <div className={classes.titleWrap}>
-                    <p className='title'>Title Goes Here</p>
+                    <p className='title'>Injected React App</p>
                     <p className='description'>
-                        Description is going to be here. Here is a whole bunch of fake text so that
-                        that I can see how I want this to look
+                        This application was built using the customer's existing website and
+                        injecting a React application on to their site. I also createed a tracking
+                        system that tracks the users actions locally and syncs with our backend
+                        system once the customer has logged in.
                     </p>
                 </div>
                 <div className={classes.bottomBar}>
                     <div className='leftWrap'>
-                        <p className='title'>Another Title</p>
-                        <NewImage />
+                        <p className='title'>Details</p>
                         <div className='details'>
                             <Details
-                                title='Technology Used:'
+                                title='Technology Used :'
                                 list={['Typescript', 'Javascript', 'React', 'JSS']}
                             />
                             <Details
-                                title='Look At The Code:'
+                                title='Look At The Code :'
                                 details={`Unfortunately this is a private repo and can't give external access.`}
                             />
                         </div>
                     </div>
-                    <div className='rightWrap'>
-                        <p className='title'>Another Title</p>
-                    </div>
+                    <div className='rightWrap' />
                 </div>
             </div>
         );
@@ -80,7 +82,7 @@ const Details = withStyles(styles)((props: DetailWithStyles) => {
             {props.list && (
                 <div className='list-wrap'>
                     {props.list.map(listItem => (
-                        <p className='list-item'>{`- ${listItem}`}</p>
+                        <p key={listItem} className='list-item'>{`- ${listItem}`}</p>
                     ))}
                 </div>
             )}
